@@ -1,0 +1,58 @@
+<template>
+	<view class="page">
+		<movable-area class="movable-area" >
+			<movable-view class="movable-view"   style="width: 600px;height: 400px;" @scale="changeZoom" direction="all" scale scale-max="2" x="2400" y="3100" :out-of-bounds="true" >
+				<img src="http://zsptapi.pineapple.fund/images/map/map.jpg" style="width: 100%;height: 100%;"  alt="">
+				<div class="mark" 	:style="'transform: scale(' + sc + ');'">222</div>
+			</movable-view>
+		</movable-area>
+	</view>
+</template>
+
+<script>
+export default {
+	data() {
+		return {
+			sc: 1
+		};
+	},
+	methods: {
+		changeZoom(e) {
+			// this.zoom++;
+			console.log(e);
+			this.sc = 1 / e.detail.scale;
+			if(this.sc > 1){
+				this.sc = 1
+			}
+		}
+	}
+};
+</script>
+
+<style lang="scss" scoped>
+.page {
+	width: 100vw;
+	height: 100vh;
+	background-color: antiquewhite;
+}
+.movable-area {
+	width: calc(100vw + 5000px);
+	height:calc(100vh + 6000px);
+	position: fixed;
+	
+	left:  -2500px;
+	top: -3000px;
+}
+
+.movable-view {
+	width:calc(100% - 350px);
+	height:calc(100% - 550px);
+	// position: absolute;
+	// top: 0;
+	// left: 0;
+	background-color: lightskyblue;
+}
+.mark {
+	width: 40px;height: 40px;position: absolute;top: 20px;left: 20px;background-color: aquamarine;
+}
+</style>
