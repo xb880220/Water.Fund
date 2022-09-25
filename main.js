@@ -6,7 +6,7 @@ import Vue from 'vue'
 import store from './store'
 
 Vue.prototype.$store = store
-Vue.prototype.$baseUrl = "http://zspt.pineapple.fund/"
+Vue.prototype.$baseUrl = "https://zspt1.5iprint.cloud/"
 import uView from '@/uni_modules/uview-ui'
 Vue.use(uView)
 

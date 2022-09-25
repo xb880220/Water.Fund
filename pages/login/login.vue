@@ -105,6 +105,6 @@ export default {
 	border-radius: 40rpx;
 	text-align: center;
 	line-height: 80rpx;
-	box-shadow: 5rpx 5rpx 4rpx 2rpx #4d4d4d;
+	box-shadow: 0px 6px 7px 0px rgba(25, 25, 25, 0.38);
 }
 </style>

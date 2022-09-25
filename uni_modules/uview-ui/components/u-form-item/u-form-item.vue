@@ -57,20 +57,22 @@
 				</view>
 			</view>
 		</view>
-		<slot name="error">
-			<text
-				v-if="!!message && parentData.errorType === 'message'"
-				class="u-form-item__body__right__message"
-				:style="{
-					marginLeft:  $u.addUnit(parentData.labelPosition === 'top' ? 0 : (labelWidth || parentData.labelWidth))
-				}"
-			>{{ message }}</text>
-		</slot>
 		<u-line
 			v-if="borderBottom"
 			:color="message && parentData.errorType === 'border-bottom' ? $u.color.error : propsLine.color"
 			:customStyle="`margin-top: ${message && parentData.errorType === 'message' ? '5px' : 0}`"
 		></u-line>
+		<slot name="error">
+			<text
+				v-if="!!message && parentData.errorType === 'message'"
+				class="u-form-item__body__right__message"
+				style="margin-top: 10px;"
+				:style="{
+					marginLeft:  $u.addUnit(parentData.labelPosition === 'top' ? 0 : (labelWidth || parentData.labelWidth))
+				}"
+			>{{ message }}</text>
+		</slot>
+	
 	</view>
 </template>
 
