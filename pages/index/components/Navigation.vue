@@ -2,8 +2,13 @@
 	<view class="page">
 		<movable-area class="movable-area" >
 			<movable-view class="movable-view"   style="width: 600px;height: 400px;" @scale="changeZoom" direction="all" scale scale-max="2" x="2400" y="3100" :out-of-bounds="true" >
-				<img src="http://zsptapi.pineapple.fund/images/map/map.jpg" style="width: 100%;height: 100%;"  alt="">
-				<div class="mark" 	:style="'transform: scale(' + sc + ');'">222</div>
+				<img src="https://zspt2.5iprint.cloud/images/map/map.jpg" style="width: 100%;height: 100%;"  alt="">
+				<view class="mark" 	:style="'transform: scale(' + sc + ');'">
+					
+					
+					<view class="" style="background-color: #fff;padding: 2px 5px;border-radius: 5px;" @click="toDes(8)">水利工程质量检测</view>
+					<u-icon name="arrow-down-fill"></u-icon>
+				</view>
 			</movable-view>
 		</movable-area>
 	</view>
@@ -17,6 +22,9 @@ export default {
 		};
 	},
 	methods: {
+		toDes(id){
+			this.$navto.navto('/pages/index/productDetail',{id:id});
+		},
 		changeZoom(e) {
 			// this.zoom++;
 			console.log(e);
@@ -53,6 +61,6 @@ export default {
 	background-color: lightskyblue;
 }
 .mark {
-	width: 40px;height: 40px;position: absolute;top: 20px;left: 20px;background-color: aquamarine;
+	height: 40px;position: absolute;top: 20px;left: 20px;
 }
 </style>

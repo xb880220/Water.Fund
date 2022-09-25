@@ -30,9 +30,13 @@
 						<u--input v-model="form.pwd" type="password" placeholder="请输入您的密码" border="none"></u--input>
 					</u-form-item>
 					<div class="margin-top-xl"></div>
+					<u-form-item prop="pwd2" class="margin-top-xl" borderBottom>
+						<u--input v-model="form.pwd2" type="password" placeholder="确认密码" border="none"></u--input>
+					</u-form-item>
+					<div class="margin-top-xl"></div>
 				</u--form>
 				<div class="margin-tb-xl loginBtn">
-					<u-button shape="circle" color="linear-gradient(to bottom, #4ABFFD , #0B93FC)" type="primary" @click="submit">登录</u-button>
+					<u-button shape="circle" color="linear-gradient(to bottom, #4ABFFD , #0B93FC)" type="primary" @click="submit">注册</u-button>
 				</div>
 			</view>
 		</view>
@@ -89,7 +93,30 @@ export default {
 						message: '请输入密码',
 						trigger: ['blur', 'change']
 					}
-				]
+				],
+				pwd2: [
+				
+				{
+							required: true, 
+							message: '请确认密码',
+							trigger: ['change','blur'],
+						},
+						{
+							// 自定义验证函数，见上说明
+							validator: (rule, value, callback) => {
+								if(value == this.form.pwd)
+								return true
+								else
+								return false
+								// 上面有说，返回true表示校验通过，返回false表示不通过
+								// uni.$u.test.mobile()就是返回true或者false的
+								// return uni.$u.test.mobile(value);
+							},
+							message: '两次输入不正确',
+							// 触发器可以同时用blur和change
+							trigger: ['change','blur'],
+						},
+						]
 			}
 		};
 	},

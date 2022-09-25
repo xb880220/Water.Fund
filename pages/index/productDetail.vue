@@ -11,7 +11,7 @@
 					<text>收藏</text>
 				</view>
 			</view>
-			<rich-text :nodes="details.content"></rich-text>
+			<u-parse :content="details.content"></u-parse>
 		</view>
 	</view>
 </template>
@@ -23,7 +23,9 @@ export default {
 	data() {
 		return {
 			strings: '',
-			details:{},
+			details:{
+				content:``
+			},
 			id:null
 		};
 	},
