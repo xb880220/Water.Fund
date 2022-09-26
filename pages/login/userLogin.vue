@@ -55,24 +55,24 @@ export default {
 				accountName: [
 					{
 						required: true,
-						message: '请输入姓名',
-						trigger: ['blur', 'change']
+						message: '请输入您的姓名',
+						trigger: ['red', 'change']
 					}
 				],
 				identityCard: [
 					{
 						required: true,
-						message: '请输入身份证',
-						trigger: ['blur', 'change']
+						message: '请输入身份证号',
+						trigger: ['red', 'change']
 					}
 				],
-				phone: [
-					{
-						required: true,
-						message: '请输入电话',
-						trigger: ['blur', 'change']
-					}
-				],
+				// phone: [
+				// 	{
+				// 		required: true,
+				// 		message: '请输入电话',
+				// 		trigger: ['red', 'change']
+				// 	}
+				// ],
 				// staffNo: [
 				// 	{
 				// 		required: true,
@@ -84,7 +84,7 @@ export default {
 					{
 						required: true,
 						message: '请输入密码',
-						trigger: ['blur', 'change']
+						trigger: ['red', 'change']
 					}
 				]
 			}

@@ -15,7 +15,7 @@
 							prefixIcon="list-dot"
 							prefixIconStyle="font-size: 22px;color: #45BBFD"
 							v-model="form.staffNo"
-							placeholder="请输入您的职工编号"
+							placeholder="请输入您的员工号"
 							border="none"
 						></u--input>
 					</u-form-item>
@@ -75,22 +75,22 @@ export default {
 				accountName: [
 					{
 						required: true,
-						message: '请输入姓名',
-						trigger: ['blur', 'change']
+						message: '请输入您的姓名',
+						trigger: ['red', 'change']
 					}
 				],
-				identityCard: [
-					{
-						required: true,
-						message: '请输入身份证',
-						trigger: ['blur', 'change']
-					}
-				],
+				// identityCard: [
+				// 	{
+				// 		required: true,
+				// 		message: '请输入身份证号',
+				// 		trigger: ['blur', 'change']
+				// 	}
+				// ],
 				staffNo: [
 					{
 						required: true,
-						message: '请输入职工编号',
-						trigger: ['blur', 'change']
+						message: '请输入您的员工号',
+						trigger: ['red', 'change']
 					}
 				],
 				// staffNo: [
@@ -104,7 +104,7 @@ export default {
 					{
 						required: true,
 						message: '请输入密码',
-						trigger: ['blur', 'change']
+						trigger: ['red', 'change']
 					}
 				]
 			}

@@ -11,11 +11,11 @@
 				<u--form labelPosition="left" :model="form" :rules="rules" ref="form">
 					<div class="margin-top-xl"></div>
 					<u-form-item prop="accountName" class="margin-top-xl" borderBottom>
-						<u--input v-model="form.accountName" placeholder="请输入您的姓名" border="none"></u--input>
+						<u--input v-model="form.accountName" placeholder="请输入您的真实姓名" border="none"></u--input>
 					</u-form-item>
 					<div class="margin-top-xl"></div>
 					<u-form-item prop="identityCard" class="margin-top-xl" borderBottom>
-						<u--input v-model="form.identityCard" placeholder="请输入您的身份证号码" border="none"></u--input>
+						<u--input v-model="form.identityCard" placeholder="请输入您的身份证号" border="none"></u--input>
 					</u-form-item>
 					<div class="margin-top-xl"></div>
 					<u-form-item prop="phone" class="margin-top-xl" borderBottom>
@@ -23,7 +23,7 @@
 					</u-form-item>
 					<div class="margin-top-xl"></div>
 					<u-form-item prop="company" class="margin-top-xl" borderBottom>
-						<u--input v-model="form.company" placeholder="请输入您的公司" border="none"></u--input>
+						<u--input v-model="form.company" placeholder="请输入您的单位全称" border="none"></u--input>
 					</u-form-item>
 					<div class="margin-top-xl"></div>
 					<u-form-item prop="pwd" class="margin-top-xl" borderBottom>
@@ -61,37 +61,37 @@ export default {
 				company: [
 					{
 						required: true,
-						message: '请输入公司',
-						trigger: ['blur', 'change']
+						message: '请输入您的单位全称',
+						trigger: ['red', 'change']
 					}
 				],
 
 				accountName: [
 					{
 						required: true,
-						message: '请输入姓名',
-						trigger: ['blur', 'change']
+						message: '请输入您的真实姓名',
+						trigger: ['red', 'change']
 					}
 				],
 				identityCard: [
 					{
 						required: true,
-						message: '请输入身份证',
-						trigger: ['blur', 'change']
+						message: '请输入您的身份证号',
+						trigger: ['red', 'change']
 					}
 				],
 				phone: [
 					{
 						required: true,
-						message: '请输入电话',
-						trigger: ['blur', 'change']
+						message: '请输入您的手机号',
+						trigger: ['red', 'change']
 					}
 				],
 				pwd: [
 					{
 						required: true,
 						message: '请输入密码',
-						trigger: ['blur', 'change']
+						trigger: ['red', 'change']
 					}
 				],
 				pwd2: [
@@ -99,7 +99,7 @@ export default {
 				{
 							required: true, 
 							message: '请确认密码',
-							trigger: ['change','blur'],
+							trigger: ['change','red'],
 						},
 						{
 							// 自定义验证函数，见上说明
@@ -114,7 +114,7 @@ export default {
 							},
 							message: '两次输入不正确',
 							// 触发器可以同时用blur和change
-							trigger: ['change','blur'],
+							trigger: ['change','red'],
 						},
 						]
 			}
