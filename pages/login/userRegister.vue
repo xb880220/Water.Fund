@@ -14,7 +14,7 @@
 						<view class="flex justify-between">
 							<view><img src="@/static/icon/xm.png" style="width: 20px;height: 20px;margin-top: 8px;margin-left: 15px;" alt="" /></view>
 							<view style="width: calc(100% - 40px)">
-								<u--input v-model="form.accountName" placeholder="请输入您的姓名" :customStyle="{ borderColor: '#f8f8f8 !important;',borderRadius:'10px !important;' }"></u--input>
+								<u--input v-model="form.accountName" placeholder="请输入您的真实姓名" :customStyle="{ borderColor: '#f8f8f8 !important;',borderRadius:'10px !important;' }"></u--input>
 							</view>
 						</view>
 					</u-form-item>
@@ -23,9 +23,10 @@
 						<view class="flex justify-between">
 							<view><img src="@/static/icon/sfz.png" style="width: 20px;height: 18px;margin-top: 9px;margin-left: 15px;" alt="" /></view>
 							<view style="width: calc(100% - 40px)">
-								<u--input v-model="form.identityCard" placeholder="请输入您的身份证号码" :customStyle="{ borderColor: '#f8f8f8 !important;' }"></u--input>
+								<u--input v-model="form.identityCard" placeholder="请输入您的身份证号" :customStyle="{ borderColor: '#f8f8f8 !important;' }"></u--input>
 							</view>
 						</view>
+
 					</u-form-item>
 					<div class="margin-top-xl"></div>
 					<u-form-item prop="phone" class="margin-top-xl" bg="#f8f8f8 !important">
@@ -41,9 +42,10 @@
 						<view class="flex justify-between">
 							<view><img src="@/static/icon/dw.png" style="width: 20px;height: 20px;margin-top: 8px;margin-left: 15px;" alt="" /></view>
 							<view style="width: calc(100% - 40px)">
-								<u--input v-model="form.company" placeholder="请输入您的公司" :customStyle="{ borderColor: '#f8f8f8 !important;' }"></u--input>
+								<u--input v-model="form.company" placeholder="请输入您的单位全称" :customStyle="{ borderColor: '#f8f8f8 !important;' }"></u--input>
 							</view>
 						</view>
+
 					</u-form-item>
 					<div class="margin-top-xl"></div>
 					<u-form-item prop="pwd" class="margin-top-xl" bg="#f8f8f8 !important">
@@ -91,7 +93,7 @@ export default {
 				company: [
 					{
 						required: true,
-						message: '请输入公司',
+						message: '请输入您的单位全称',
 						trigger: ['blur', 'change']
 					}
 				],
@@ -99,21 +101,21 @@ export default {
 				accountName: [
 					{
 						required: true,
-						message: '请输入姓名',
-						trigger: ['blur', 'change']
+						message: '请输入您的真实姓名',
+						trigger: ['red', 'change']
 					}
 				],
 				identityCard: [
 					{
 						required: true,
-						message: '请输入身份证',
+						message: '请输入您的身份证号',
 						trigger: ['blur', 'change']
 					}
 				],
 				phone: [
 					{
 						required: true,
-						message: '请输入电话',
+						message: '请输入您的手机号',
 						trigger: ['blur', 'change']
 					}
 				],
@@ -144,6 +146,7 @@ export default {
 						trigger: ['change', 'blur']
 					}
 				]
+
 			}
 		};
 	},

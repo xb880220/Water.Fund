@@ -81,24 +81,24 @@ export default {
 				accountName: [
 					{
 						required: true,
-						message: '请输入姓名',
+						message: '请输入您的姓名',
 						trigger: ['blur', 'change']
 					}
 				],
 				identityCard: [
 					{
 						required: true,
-						message: '请输入身份证',
+						message: '请输入身份证号',
 						trigger: ['blur', 'change']
 					}
 				],
-				phone: [
-					{
-						required: true,
-						message: '请输入电话',
-						trigger: ['blur', 'change']
-					}
-				],
+				// phone: [
+				// 	{
+				// 		required: true,
+				// 		message: '请输入电话',
+				// 		trigger: ['red', 'change']
+				// 	}
+				// ],
 				// staffNo: [
 				// 	{
 				// 		required: true,

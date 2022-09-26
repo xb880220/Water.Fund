@@ -5,7 +5,7 @@
 			<block slot="content">搜索</block>
 		</cu-custom>
 		<view class="page">
-			<u-search placeholder="搜索" :clearabled="true" animation showAction @custom="startSearch" v-model="searchVal"></u-search>
+			<u-search placeholder="全局搜索" :clearabled="true" animation showAction @custom="startSearch" v-model="searchVal"></u-search>
 			<view class="history" v-if="historyList.length != 0">
 				<view class="title">历史记录</view>
 				<view class="content">
