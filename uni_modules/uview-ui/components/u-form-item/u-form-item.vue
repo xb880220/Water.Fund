@@ -43,7 +43,7 @@
 					</view>
 				</view>
 			</slot>
-			<view class="u-form-item__body__right">
+			<view class="u-form-item__body__right" :style="{backgroundColor:bg,}">
 				<view class="u-form-item__body__right__content">
 					<view class="u-form-item__body__right__content__slot">
 						<slot />

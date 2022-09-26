@@ -5,6 +5,10 @@ export default {
             type: String,
             default: uni.$u.props.formItem.label
         },
+		bg:{
+			type: String,
+			default: null
+		},
         // 绑定的值
         prop: {
             type: String,

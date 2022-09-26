@@ -10,28 +10,58 @@
 			<view class="formBox">
 				<u--form labelPosition="left" :model="form" :rules="rules" ref="form">
 					<div class="margin-top-xl"></div>
-					<u-form-item prop="accountName" class="margin-top-xl" borderBottom>
-						<u--input v-model="form.accountName" placeholder="请输入您的姓名" border="none"></u--input>
+					<u-form-item prop="accountName" class="margin-top-xl" bg="#f8f8f8 !important">
+						<view class="flex justify-between">
+							<view><img src="@/static/icon/xm.png" style="width: 20px;height: 20px;margin-top: 8px;margin-left: 15px;" alt="" /></view>
+							<view style="width: calc(100% - 40px)">
+								<u--input v-model="form.accountName" placeholder="请输入您的姓名" :customStyle="{ borderColor: '#f8f8f8 !important;',borderRadius:'10px !important;' }"></u--input>
+							</view>
+						</view>
 					</u-form-item>
 					<div class="margin-top-xl"></div>
-					<u-form-item prop="identityCard" class="margin-top-xl" borderBottom>
-						<u--input v-model="form.identityCard" placeholder="请输入您的身份证号码" border="none"></u--input>
+					<u-form-item prop="identityCard" class="margin-top-xl" bg="#f8f8f8 !important">
+						<view class="flex justify-between">
+							<view><img src="@/static/icon/sfz.png" style="width: 20px;height: 18px;margin-top: 9px;margin-left: 15px;" alt="" /></view>
+							<view style="width: calc(100% - 40px)">
+								<u--input v-model="form.identityCard" placeholder="请输入您的身份证号码" :customStyle="{ borderColor: '#f8f8f8 !important;' }"></u--input>
+							</view>
+						</view>
 					</u-form-item>
 					<div class="margin-top-xl"></div>
-					<u-form-item prop="phone" class="margin-top-xl" borderBottom>
-						<u--input v-model="form.phone" placeholder="请输入您的手机号" border="none"></u--input>
+					<u-form-item prop="phone" class="margin-top-xl" bg="#f8f8f8 !important">
+						<view class="flex justify-between">
+							<view><img src="@/static/icon/sj.png" style="width: 14px;height: 20px;margin-top: 8px;margin-left: 18px;" alt="" /></view>
+							<view style="width: calc(100% - 40px)">
+								<u--input v-model="form.phone" placeholder="请输入您的手机号" :customStyle="{ borderColor: '#f8f8f8 !important;' }"></u--input>
+							</view>
+						</view>
 					</u-form-item>
 					<div class="margin-top-xl"></div>
-					<u-form-item prop="company" class="margin-top-xl" borderBottom>
-						<u--input v-model="form.company" placeholder="请输入您的公司" border="none"></u--input>
+					<u-form-item prop="company" class="margin-top-xl" bg="#f8f8f8 !important">
+						<view class="flex justify-between">
+							<view><img src="@/static/icon/dw.png" style="width: 20px;height: 20px;margin-top: 8px;margin-left: 15px;" alt="" /></view>
+							<view style="width: calc(100% - 40px)">
+								<u--input v-model="form.company" placeholder="请输入您的公司" :customStyle="{ borderColor: '#f8f8f8 !important;' }"></u--input>
+							</view>
+						</view>
 					</u-form-item>
 					<div class="margin-top-xl"></div>
-					<u-form-item prop="pwd" class="margin-top-xl" borderBottom>
-						<u--input v-model="form.pwd" type="password" placeholder="请输入您的密码" border="none"></u--input>
+					<u-form-item prop="pwd" class="margin-top-xl" bg="#f8f8f8 !important">
+						<view class="flex justify-between">
+							<view><img src="@/static/icon/mm.png" style="width: 20px;height: 20px;margin-top: 8px;margin-left: 15px;" alt="" /></view>
+							<view style="width: calc(100% - 40px)">
+								<u--input v-model="form.pwd" type="password" placeholder="请输入您的密码" :customStyle="{ borderColor: '#f8f8f8 !important;' }"></u--input>
+							</view>
+						</view>
 					</u-form-item>
 					<div class="margin-top-xl"></div>
-					<u-form-item prop="pwd2" class="margin-top-xl" borderBottom>
-						<u--input v-model="form.pwd2" type="password" placeholder="确认密码" border="none"></u--input>
+					<u-form-item prop="pwd2" class="margin-top-xl" bg="#f8f8f8 !important">
+						<view class="flex justify-between">
+							<view><img src="@/static/icon/mm.png" style="width: 20px;height: 20px;margin-top: 8px;margin-left: 15px;" alt="" /></view>
+							<view style="width: calc(100% - 40px)">
+								<u--input v-model="form.pwd2" type="password" placeholder="确认密码" :customStyle="{ borderColor: '#f8f8f8 !important;' }"></u--input>
+							</view>
+						</view>
 					</u-form-item>
 					<div class="margin-top-xl"></div>
 				</u--form>
@@ -95,28 +125,25 @@ export default {
 					}
 				],
 				pwd2: [
-				
-				{
-							required: true, 
-							message: '请确认密码',
-							trigger: ['change','blur'],
+					{
+						required: true,
+						message: '请确认密码',
+						trigger: ['change', 'blur']
+					},
+					{
+						// 自定义验证函数，见上说明
+						validator: (rule, value, callback) => {
+							if (value == this.form.pwd) return true;
+							else return false;
+							// 上面有说，返回true表示校验通过，返回false表示不通过
+							// uni.$u.test.mobile()就是返回true或者false的
+							// return uni.$u.test.mobile(value);
 						},
-						{
-							// 自定义验证函数，见上说明
-							validator: (rule, value, callback) => {
-								if(value == this.form.pwd)
-								return true
-								else
-								return false
-								// 上面有说，返回true表示校验通过，返回false表示不通过
-								// uni.$u.test.mobile()就是返回true或者false的
-								// return uni.$u.test.mobile(value);
-							},
-							message: '两次输入不正确',
-							// 触发器可以同时用blur和change
-							trigger: ['change','blur'],
-						},
-						]
+						message: '两次输入不正确',
+						// 触发器可以同时用blur和change
+						trigger: ['change', 'blur']
+					}
+				]
 			}
 		};
 	},
@@ -164,7 +191,7 @@ export default {
 	margin-top: 40px;
 }
 .margin-top-xl {
-	margin-top: 20px;
+	margin-top: 0px;
 }
 .formBox {
 	position: relative;

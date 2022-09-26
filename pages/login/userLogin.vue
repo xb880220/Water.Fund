@@ -11,11 +11,31 @@
 				<u--form labelPosition="left" :model="form" :rules="rules" ref="form">
 					<div class="margin-top-xl"></div>
 					<u-form-item prop="accountName" class="margin-top-xl" borderBottom>
-						<u--input v-model="form.accountName" placeholder="请输入您的姓名" border="none"></u--input>
+						<view class="flex justify-between">
+							<view><img src="@/static/icon/xm.png" style="width: 20px;height: 20px;margin-top: 2px;" alt="" /></view>
+							<view style="width: calc(100% - 26px)">
+								<u--input
+									v-model="form.accountName"
+									placeholder="请输入您的姓名"
+									border="none"
+								></u--input>
+							</view>
+						</view>
+						<!-- <u--input
+							prefixIcon="account"
+							prefixIconStyle="font-size: 22px;color: #45BBFD"
+							v-model="form.accountName"
+							placeholder="请输入您的姓名"
+							border="none"
+						></u--input> -->
 					</u-form-item>
 					<div class="margin-top-xl"></div>
 					<u-form-item prop="identityCard" class="margin-top-xl" borderBottom>
-						<u--input v-model="form.identityCard" placeholder="请输入您的身份证号码" border="none"></u--input>
+						<view class="flex justify-between">
+							<view><img src="@/static/icon/sfz.png" style="width: 20px;height: 18px;margin-top: 3px;" alt="" /></view>
+							<view style="width: calc(100% - 26px)"><u--input v-model="form.identityCard" placeholder="请输入您的身份证号码" border="none"></u--input></view>
+						</view>
+						
 					</u-form-item>
 					<div class="margin-top-xl"></div>
 					<!-- <u-form-item prop="phone" class="margin-top-xl" borderBottom>
@@ -23,7 +43,13 @@
 					</u-form-item>
 					<div class="margin-top-xl"></div> -->
 					<u-form-item prop="pwd" class="margin-top-xl" borderBottom>
-						<u--input v-model="form.pwd" type="password" placeholder="请输入您的密码" border="none"></u--input>
+						<view class="flex justify-between">
+							<view><img src="@/static/icon/mm.png" style="width: 20px;height: 20px;margin-top: 2px;" alt="" /></view>
+							<view style="width: calc(100% - 26px)"><u--input v-model="form.pwd" type="password" placeholder="请输入您的密码" border="none"></u--input></view>
+						</view>
+						
+						
+						
 					</u-form-item>
 					<div class="margin-top-xl"></div>
 				</u--form>
@@ -154,8 +180,8 @@ export default {
 	padding: 0 40px;
 	width: calc(100% - 80px);
 }
-.contactUs{
-	color: #45BBFD;
+.contactUs {
+	color: #45bbfd;
 	text-align: center;
 	margin-top: 40px;
 }
