@@ -9,17 +9,17 @@
 		<view>
 			<view class="formBox">
 				<u--form labelPosition="left" :model="form" :rules="rules" ref="form">
-					<div class="margin-top-xl"></div>
+					<view class="margin-top-xl"></view>
 					<u-form-item prop="staffNo" class="margin-top-xl" borderBottom>
 						<u--input
 							prefixIcon="list-dot"
 							prefixIconStyle="font-size: 22px;color: #45BBFD"
 							v-model="form.staffNo"
-							placeholder="请输入您的员工号"
+							placeholder="请输入您的职工编号"
 							border="none"
 						></u--input>
 					</u-form-item>
-					<div class="margin-top-xl"></div>
+					<view class="margin-top-xl"></view>
 					<u-form-item prop="accountName" class="margin-top-xl" borderBottom>
 						<u--input
 							prefixIcon="account"
@@ -33,7 +33,7 @@
 						<u--input prefixIcon="list-dot"
 							prefixIconStyle="font-size: 22px;color: #45BBFD" v-model="form.identityCard" placeholder="请输入您的身份证号码" border="none"></u--input>
 					</u-form-item> -->
-					<div class="margin-top-xl"></div>
+					<view class="margin-top-xl"></view>
 					<u-form-item prop="pwd" class="margin-top-xl" borderBottom>
 						<u--input
 							prefixIcon="lock"
@@ -44,14 +44,21 @@
 							border="none"
 						></u--input>
 					</u-form-item>
-					<div class="margin-top-xl"></div>
+					<view class="margin-top-xl"></view>
 				</u--form>
-				<div class="margin-tb-xl loginBtn">
+				<view class="margin-tb-xl loginBtn">
 					<u-button shape="circle" color="linear-gradient(to bottom, #4ABFFD , #0B93FC)" type="primary" @click="submit">登录</u-button>
-				</div>
+				</view>
 				
 			</view>
-			<div class="contactUs">联系工作人员</div>
+			<view class="contactUs" @click="showCall()">联系工作人员</view>
+			<u-popup :show="show" mode="center" :round="10" @close="close" >
+				<view class="" style="padding: 30px;">
+					拨打&nbsp;&nbsp;<text @click="call()" style="color: cornflowerblue;font-weight: 600;margin: 0 10px;">059187533793</text>
+					&nbsp;&nbsp;转播 1028
+				</view>
+			      
+			</u-popup>
 		</view>
 	</view>
 </template>
@@ -63,6 +70,7 @@ export default {
 	components: { Title },
 	data() {
 		return {
+			show:false,
 			form: {
 				accountName: '',
 				pwd: '',
@@ -75,22 +83,22 @@ export default {
 				accountName: [
 					{
 						required: true,
-						message: '请输入您的姓名',
-						trigger: ['red', 'change']
+						message: '请输入姓名',
+						trigger: ['blur', 'change']
 					}
 				],
-				// identityCard: [
-				// 	{
-				// 		required: true,
-				// 		message: '请输入身份证号',
-				// 		trigger: ['blur', 'change']
-				// 	}
-				// ],
+				identityCard: [
+					{
+						required: true,
+						message: '请输入身份证',
+						trigger: ['blur', 'change']
+					}
+				],
 				staffNo: [
 					{
 						required: true,
-						message: '请输入您的员工号',
-						trigger: ['red', 'change']
+						message: '请输入职工编号',
+						trigger: ['blur', 'change']
 					}
 				],
 				// staffNo: [
@@ -104,7 +112,7 @@ export default {
 					{
 						required: true,
 						message: '请输入密码',
-						trigger: ['red', 'change']
+						trigger: ['blur', 'change']
 					}
 				]
 			}
@@ -114,6 +122,17 @@ export default {
 		this.$refs.form.setRules(this.rules);
 	},
 	methods: {
+		close() {
+				this.show = false;
+		},
+		showCall(){
+			this.show = true;
+		},
+		call(){
+			wx.makePhoneCall({
+			      phoneNumber: '059187533793',
+			    })
+		},
 		submit() {
 			this.$refs.form
 				.validate()

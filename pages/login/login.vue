@@ -1,5 +1,16 @@
 <template>
 	<view class="main">
+		
+		
+		       <view class="star star1"></view>
+		       <view class="star star2"></view>
+		       <view class="star star3"></view>
+			    <view class="star star4"></view>
+				 <view class="star star5"></view>
+		   <view class="star star6"></view>
+		    <view class="star star7"></view>
+		
+		
 		<view class="bgimg" style="">
 			<img :src="baseUrl+'wechat/share/homepage.jpg'" style="width: 100%;height: 100%;" alt="">
 		</view>
@@ -31,7 +42,14 @@ export default {
 			baseUrl:this.$baseUrl
 		};
 	},
+	onLoad(){
+		
+	},
 	methods:{
+		
+		
+		
+		
 		openScanCode(){
 			// 调起条码扫描
 			uni.scanCode({
@@ -47,6 +65,146 @@ export default {
 </script>
 
 <style lang="scss">
+	.star {
+	    position : absolute;
+	    top      : 0;
+	    left     : 50%;
+	    transform: translateX(-50%);
+	    width    : 400px;
+	    height   : 400px;
+		opacity:0;
+	    animation: star 2.5s ease-in infinite;
+	}
+	
+	.star1 {
+		position : absolute;
+		top      : 200px;
+		left     : 10%;
+	    // background: url(images/bg_star_1.png) no-repeat center center;
+		width: 2px;
+		height: 2px;
+		background: white;
+		box-sizing: content-box;
+		border-radius: 1px;
+		box-shadow: 0px 0px 20px 20px #ffffff20;
+		z-index: 200;
+		animation-delay: 4.8s;
+	}
+	
+	.star2 {
+		position : absolute;
+		top      : 100px;
+		left     : 90%;
+		// background: url(images/bg_star_1.png) no-repeat center center;
+		width: 8px;
+		height: 8px;
+		background: white;
+		box-sizing: content-box;
+		border-radius: 4px;
+		box-shadow: 0px 0px 20px 20px #ffffff20;
+		z-index: 200;
+	    // background: url(images/bg_star_2.png) no-repeat center center; 
+		animation-delay: 4s;
+	}
+	
+	.star3 {
+		position : absolute;
+		top      : 400px;
+		left     : 40%;
+		// background: url(images/bg_star_1.png) no-repeat center center;
+		width: 8px;
+		height: 8px;
+		background: white;
+		box-sizing: content-box;
+		border-radius: 4px;
+		box-shadow: 0px 0px 20px 20px #ffffff20;
+		z-index: 200;
+	    // background: url(images/bg_star_2.png) no-repeat center center; 
+		animation-delay: 3.8s;
+	}
+	
+	.star4 {
+		position : absolute;
+		top      : 100px;
+		left     : 20%;
+		// background: url(images/bg_star_1.png) no-repeat center center;
+		width: 4px;
+		height: 4px;
+		background: white;
+		box-sizing: content-box;
+		border-radius: 2px;
+		box-shadow: 0px 0px 20px 20px #ffffff20;
+		z-index: 200;
+	    // background: url(images/bg_star_2.png) no-repeat center center; 
+		animation-delay: 7.8s;
+	}
+	
+	.star5 {
+		position : absolute;
+		top      : 50px;
+		left     : 70%;
+		// background: url(images/bg_star_1.png) no-repeat center center;
+		width: 6px;
+		height: 6px;
+		background: white;
+		box-sizing: content-box;
+		border-radius: 3px;
+		box-shadow: 0px 0px 20px 20px #ffffff20;
+		z-index: 200;
+		// background: url(images/bg_star_2.png) no-repeat center center; 
+		animation-delay: 2.8s;
+	    // background: url(images/bg_star_3.png) no-repeat center center; animation-delay: 1.7s;
+	}
+	
+	.star6 {
+		position : absolute;
+		top      : 350px;
+		left     : 12%;
+		// background: url(images/bg_star_1.png) no-repeat center center;
+		width: 6px;
+		height: 6px;
+		background: white;
+		box-sizing: content-box;
+		border-radius: 3px;
+		box-shadow: 0px 0px 20px 20px #ffffff20;
+		z-index: 200;
+		// background: url(images/bg_star_2.png) no-repeat center center; 
+		animation-delay: 3.8s;
+	    // background: url(images/bg_star_3.png) no-repeat center center; animation-delay: 1.7s;
+	}
+	
+	.star7 {
+		position : absolute;
+		top      : 250px;
+		left     : 5%;
+		// background: url(images/bg_star_1.png) no-repeat center center;
+		width: 8px;
+		height: 8px;
+		background: white;
+		box-sizing: content-box;
+		border-radius: 4px;
+		box-shadow: 0px 0px 20px 20px #ffffff20;
+		z-index: 200;
+		// background: url(images/bg_star_2.png) no-repeat center center; 
+		animation-delay: 8.8s;
+	    // background: url(images/bg_star_3.png) no-repeat center center; animation-delay: 1.7s;
+	}
+	
+	@keyframes star {
+	    10% {
+	        opacity: 0;
+	    }
+	
+	    50% {
+	        opacity: 1;
+	    }
+		100% {
+			opacity: 0;
+		}
+	}
+	
+	//````````````````````````````````````
+	
 .main {
 	height: 100vh;
 	width: 100vw;

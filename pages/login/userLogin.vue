@@ -9,7 +9,7 @@
 		<view>
 			<view class="formBox">
 				<u--form labelPosition="left" :model="form" :rules="rules" ref="form">
-					<div class="margin-top-xl"></div>
+					<view class="margin-top-xl"></view>
 					<u-form-item prop="accountName" class="margin-top-xl" borderBottom>
 						<view class="flex justify-between">
 							<view><img src="@/static/icon/xm.png" style="width: 20px;height: 20px;margin-top: 2px;" alt="" /></view>
@@ -29,7 +29,7 @@
 							border="none"
 						></u--input> -->
 					</u-form-item>
-					<div class="margin-top-xl"></div>
+					<view class="margin-top-xl"></view>
 					<u-form-item prop="identityCard" class="margin-top-xl" borderBottom>
 						<view class="flex justify-between">
 							<view><img src="@/static/icon/sfz.png" style="width: 20px;height: 18px;margin-top: 3px;" alt="" /></view>
@@ -37,11 +37,11 @@
 						</view>
 						
 					</u-form-item>
-					<div class="margin-top-xl"></div>
+					<view class="margin-top-xl"></view>
 					<!-- <u-form-item prop="phone" class="margin-top-xl" borderBottom>
 						<u--input v-model="form.phone" placeholder="请输入您的手机号" border="none"></u--input>
 					</u-form-item>
-					<div class="margin-top-xl"></div> -->
+					<view class="margin-top-xl"></view> -->
 					<u-form-item prop="pwd" class="margin-top-xl" borderBottom>
 						<view class="flex justify-between">
 							<view><img src="@/static/icon/mm.png" style="width: 20px;height: 20px;margin-top: 2px;" alt="" /></view>
@@ -51,13 +51,20 @@
 						
 						
 					</u-form-item>
-					<div class="margin-top-xl"></div>
+					<view class="margin-top-xl"></view>
 				</u--form>
-				<div class="margin-tb-xl loginBtn">
+				<view class="margin-tb-xl loginBtn">
 					<u-button shape="circle" color="linear-gradient(to bottom, #4ABFFD , #0B93FC)" type="primary" @click="submit">登录</u-button>
-				</div>
+				</view>
 			</view>
-			<div class="contactUs">联系工作人员</div>
+			<view class="contactUs" @click="showCall()">联系工作人员</view>
+			<u-popup :show="show" mode="center" :round="10" @close="close" >
+				<view class="" style="padding: 30px;">
+					拨打&nbsp;&nbsp;<text @click="call()" style="color: cornflowerblue;font-weight: 600;margin: 0 10px;">059187533793</text>
+					&nbsp;&nbsp;转播 1028
+				</view>
+			      
+			</u-popup>
 		</view>
 	</view>
 </template>
@@ -69,13 +76,15 @@ export default {
 	components: { Title },
 	data() {
 		return {
+			show:false,
 			form: {
 				accountName: '',
 				pwd: '',
 				phone: '',
 				identityCard: '',
 				staffNo: '',
-				inWard: true
+				inWard: true,
+				
 			},
 			rules: {
 				accountName: [
@@ -120,6 +129,17 @@ export default {
 		this.$refs.form.setRules(this.rules);
 	},
 	methods: {
+		close() {
+				this.show = false;
+		},
+		showCall(){
+			this.show = true;
+		},
+		call(){
+			wx.makePhoneCall({
+			      phoneNumber: '',
+			    })
+		},
 		submit() {
 			this.$refs.form
 				.validate()

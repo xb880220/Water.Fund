@@ -2,7 +2,7 @@
 	<view class="u-page pageMain">
 		<cu-custom bgColor="bgcolor" :isBack="true">
 			<block slot="backText">返回</block>
-			<block slot="content">新闻</block>
+			<block slot="content" v-cloak>{{title}}</block>
 		</cu-custom>
 		<!-- 返回顶部 -->
 		<u-back-top :scroll-top="scrollTop"></u-back-top>
@@ -23,12 +23,13 @@ export default {
 	},
 	data() {
 		return {
+			title:null,
 			indexList: [],
 			scrollTop: 0,
 			config:{
 				pageIndex:1,
 				pageSize:10,
-				type:1
+				type:null
 			},
 			urls: [
 				'https://cdn.uviewui.com/uview/album/1.jpg',
@@ -44,7 +45,10 @@ export default {
 			]
 		};
 	},
-	onLoad() {
+	onLoad(option) {
+		this.config.type = option.type;
+		this.title = option.type==1?'新闻':'公告'
+		console.log(option);
 		this.loadmore();
 		this.switchTimer = true;
 	},

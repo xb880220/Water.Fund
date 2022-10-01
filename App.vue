@@ -14,6 +14,29 @@ export default {
 		};
 	},
 	onLaunch: function() {
+		let _this = this;
+		uni.addInterceptor('navigateTo', {//监听跳转
+						invoke(e) {
+							console.log(e,3333);
+						   if(e.url == 'userLogin?' || e.url == 'staffLogin?' || e.url == 'userRegister?'){
+							   // 结束计时
+							   
+								clearInterval(_this.timer);
+								_this.timer = null
+						   }else {
+							    
+							   // 开始计时
+							   let isLogin = _this.judgeLogin();
+							   
+							   if (!isLogin) {
+							   	_this.openTimer(_this.$store.getters.getCount);
+							   }
+						   }
+						    return true;
+						  },
+						
+					}),
+		
 		uni.getSystemInfo({
 			success: function(e) {
 				// #ifndef MP
@@ -54,6 +77,7 @@ export default {
 				if(data < 0){
 					_this.$navto.navto('/pages/login/login');
 					clearInterval(_this.timer);
+					_this.timer = null
 					return
 				}
 				
@@ -73,7 +97,6 @@ export default {
 			return this.$store.getters.getLogin;
 		},
 		openTimer(val = 60) {
-			console.log('倒计时开始');
 			let count = val;
 			// let timer;
 			let _this = this;
@@ -84,12 +107,14 @@ export default {
 				if (count < 0) {
 					clearInterval(_this.timer); //倒计时为0之后停止倒计时
 					console.log('倒计时结束');
+					_this.timer = null
 					_this.$navto.navto('/pages/login/login');
 				}
 
 				if (_this.$store.getters.getLogin) {
 					clearInterval(_this.timer); //倒计时为0之后停止倒计时
 					console.log('倒计时结束');
+					_this.timer = null
 				}
 				console.log(count);
 				count--;
