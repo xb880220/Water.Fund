@@ -7,7 +7,7 @@
 		<!-- 返回顶部 -->
 		<u-back-top :scroll-top="scrollTop"></u-back-top>
 		<!-- <u-list @scrolltolower="scrolltolower"> -->
-		<ListItem v-for="(item, index) in indexList" :details="item" :key="index"></ListItem>
+		<ListItem v-for="(item, index) in indexList" :details="item" :type="config.type" :key="index"></ListItem>
 		<!-- </u-list> -->
 	</view>
 </template>

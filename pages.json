@@ -108,6 +108,15 @@
             }
             
         }
+        ,{
+            "path" : "pages/news/notice",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "",
+                "enablePullDownRefresh": false
+            }
+            
+        }
     ],
 	"globalStyle": {
 		"navigationStyle": "custom", // 取消所有页面导航

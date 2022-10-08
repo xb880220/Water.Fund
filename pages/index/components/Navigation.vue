@@ -2,7 +2,7 @@
 	<view class="page">
 		<movable-area class="movable-area" >
 			<movable-view class="movable-view"   style="width: 600px;height: 400px;" @scale="changeZoom" direction="all" scale scale-max="2" x="2400" y="3100" :out-of-bounds="true" >
-				<img src="https://zspt2.5iprint.cloud/images/map/map.jpg" style="width: 100%;height: 100%;"  alt="">
+				<img src="https://zspt2.5iprint.cloud/images/map/map.jpg?v=1" style="width: 100%;height: 100%;"  alt="">
 				<view class="mark" 	:style="'transform: scale(' + sc + ');'">
 					
 					

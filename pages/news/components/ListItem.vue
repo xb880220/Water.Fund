@@ -4,7 +4,8 @@
 		<view class="listItem-centent">{{details.subheading?details.subheading:details.introduction}}</view>
 		<view class="listItem-bottom flex justify-between">
 			<view class="time">{{time}}</view>
-			<view class="btn" @tap="$navto.navto('/pages/news/details', { id: details.id })">阅读全文</view>
+			<view class="btn" v-if="type==1" @tap="$navto.navto('/pages/news/details', { id: details.id })">阅读全文</view>
+			<view class="btn" v-if="type==2" @tap="$navto.navto('/pages/news/notice', { id: details.id })">阅读全文</view>
 		</view>
 		<u-line></u-line>
 	</view>
@@ -16,7 +17,8 @@ export default {
 	props:{
 		details:{
 			type:Object
-		}
+		},
+		type: null
 	},
 	onReady() {
 		console.log(this.details.createdTime);
