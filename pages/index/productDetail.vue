@@ -1,7 +1,7 @@
 <template>
 	<view class="pageMain">
 		<u-toast ref="uToast"></u-toast>
-		<cu-custom bgColor="" :isBack="true"><block slot="backText">返回</block></cu-custom>
+		<cu-custom bgColor="bgcolor" :isBack="true"><block slot="backText">返回</block></cu-custom>
 		<view class="page">
 			<view class="title">{{ details.name }}</view>
 			<!-- <view class="time">2022-08-16</view> -->

@@ -149,9 +149,10 @@ export default {
 						this.$store.commit('saveToken', result);
 						this.$navto.navto('/pages/index/index');
 					}
-					uni.$u.toast('校验通过');
+					uni.$u.toast('欢迎进入实训平台');
 				})
 				.catch(errors => {
+					debugger;
 					uni.$u.toast('校验失败');
 				});
 		}

@@ -16,7 +16,7 @@
 		<view class="page">
 			<u-search shape="round" disabled :showAction="false" @click="$navto.navto('/pages/index/searchPage')"></u-search>
 			<view class="margin-top" :key="lkey"><u-swiper :list="list" keyName="content" height="200" class="" indicator indicatorMode="line" circular></u-swiper></view>
-			<view class="margin-top-sm"><u-notice-bar :text="text" bgColor="#eaeaea" color="#9A9A9A"></u-notice-bar></view>
+			<view class="margin-top-sm"><u-notice-bar :text="text" bgColor="#fdf6ec" color="#f9ae3d"></u-notice-bar></view>
 			<view class="flex justify-between flex-wrap">
 				<view class="menuItem" @tap="showCenter(3)">
 					<view class="itemIcon">
