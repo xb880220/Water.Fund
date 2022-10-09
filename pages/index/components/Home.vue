@@ -89,6 +89,9 @@
 					<view class="" style="margin: 0 auto;" v-if="elements.length == 0"><u-empty mode="data" :icon="icon"></u-empty></view>
 				</view>
 			</view>
+			<view class="" style="width: 100%;height: 10px;">
+				
+			</view>
 		</view>
 	</view>
 </template>
@@ -189,7 +192,7 @@ export default {
 	box-sizing: content-box;
 	padding: 10px 10px;
 	margin-top: 20px;
-	margin-bottom: 90px;
+	margin-bottom: 120px;
 	background-color: rgba(255, 255, 255, 0);
 
 	.header {

@@ -1,5 +1,6 @@
 <template>
 	<view class="tabbar">
+		<div class="bottom"></div>
 		<view class="btnbox">
 			<view class="btn" :class="checked !== 0 ? 'activite' : ''" @tap="clickTabber(0)">
 				<img src="../static/tabber/home.png" alt="" />
@@ -74,16 +75,24 @@ export default {
 	// background: linear-gradient(90deg, #fff, #bbb);
 	// position: relative;
 	width: 100vw;
-	height: 60px;
+	height: 70px;
 	position: fixed;
 	display: flex;
 	justify-content: space-between;
 	bottom: 0;
 	left: 0;
+	.bottom {
+		height: 10px;
+		width: 100%;
+		position: absolute;
+		bottom: 0;
+		left: 0;
+		background-color: white;
+	}
 	// background: #000;
 	> img {
 		position: absolute;
-		bottom: 0;
+		bottom: 10px;
 		left: 50%;
 		transform: translate(-50%, 0);
 		// background-image: url("@/static/tabber.png");

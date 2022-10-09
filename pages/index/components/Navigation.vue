@@ -3,10 +3,10 @@
 		<movable-area class="movable-area" >
 			<movable-view class="movable-view"   style="width: 600px;height: 400px;" @scale="changeZoom" direction="all" scale scale-max="2" x="2400" y="3100" :out-of-bounds="true" >
 				<img src="https://zspt2.5iprint.cloud/images/map/map.jpg?v=1" style="width: 100%;height: 100%;"  alt="">
-				<view class="mark" 	:style="'transform: scale(' + sc + ');'">
+				<view class="mark"   v-for="(item,index) in list" :key="index"	:style="'transform: scale(' + sc + ');top:'+item.yaxis+'px;left:'+item.xaxis+'px'">
 					
 					
-					<view class="" style="background-color: #fff;padding: 2px 5px;border-radius: 5px;" @click="toDes(8)">水利工程质量检测</view>
+					<view class="" style="background-color: #fff;padding: 2px 5px;border-radius: 5px;max-width:200px" @click="toDes(item.id)">{{item.name}}</view>
 					<u-icon name="arrow-down-fill"></u-icon>
 				</view>
 			</movable-view>
@@ -15,13 +15,25 @@
 </template>
 
 <script>
+	import { getproductsalllistApi } from '@/config/home.js';
 export default {
 	data() {
 		return {
+			src:"",
+			list:[],
 			sc: 1
 		};
 	},
+	onReady() {
+			console.log("????");
+			this.getData()
+	},
 	methods: {
+		async getData() {
+			const result = await getproductsalllistApi();
+			console.log(result);
+			this.list = result
+		},
 		toDes(id){
 			this.$navto.navto('/pages/index/productDetail',{id:id});
 		},

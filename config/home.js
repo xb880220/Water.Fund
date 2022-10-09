@@ -7,3 +7,5 @@ export const getcollectionlistApi = (data) => http.get('/api/fund/collection/get
 export const getDetailsApi = (id) => http.post('/api/fund/products/getproduct',{id:id})
 
 export const joincollectionApi = (id) => http.post('/api/fund/collection/joincollection',{porductsId:id})
+
+export const getproductsalllistApi = (data) => http.post('/api/fund/products/getproductsalllist')
