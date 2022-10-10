@@ -55,7 +55,7 @@ export default {
 		openScanCode(){
 			// 调起条码扫描
 			uni.scanCode({
-				scanType: ['barCode'],
+				scanType: ['qrCode'],
 				success: function (res) {
 					console.log('条码类型：' + res.scanType);
 					console.log('条码内容：' + res.result);
