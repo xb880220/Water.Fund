@@ -50,9 +50,23 @@ export default {
 	},
 	methods: {
 		BackPage() {
-			uni.navigateBack({
-				delta: 1
-			});
+			
+			 let pages = getCurrentPages();
+			        if (pages.length > 1) {
+			          wx.navigateBack({//返回
+			            delta: 1
+			          });
+			        }
+			        if (pages.length == 1) {
+			          wx.reLaunch({
+			            url: '/pages/index/index',
+			          })
+			        }
+		
+			
+			// uni.navigateBack({
+			// 	delta: 1
+			// });
 		}
 	}
 };

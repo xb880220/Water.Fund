@@ -23,12 +23,7 @@
 			</view>
 		</view>
 
-		<view class="cenBtn" @tap="openScanCode">
-			
-				<u-icon name="scan"  color="#6fa7fb" size="40"></u-icon>
-			
-			
-		</view>
+		<view class="cenBtn" @tap="openScanCode"><u-icon name="scan" color="#6fa7fb" size="40"></u-icon></view>
 		<view class="bgl"></view>
 		<view class="bgr"></view>
 		<img src="../static/tabber.png" alt="" />
@@ -52,13 +47,32 @@ export default {
 		clickTabber(val) {
 			this.$emit('change', val);
 		},
-		openScanCode(){
+		clickItem(id) {
+			this.$navto.navto('/pages/index/productDetail', { id: id });
+		},
+		openScanCode() {
+			let _this = this;
 			// 调起条码扫描
 			uni.scanCode({
 				scanType: ['qrCode'],
-				success: function (res) {
+				success: function(res) {
 					console.log('条码类型：' + res.scanType);
 					console.log('条码内容：' + res.result);
+						let id = res.result.split('cloud/wechat/qrcode?id=')[1];
+						if(id){
+							_this.clickItem(id);
+						}else {
+							uni.showToast({
+								title: '请扫描指定二维码',
+								icon:'none',
+								duration: 2000
+							});
+						}
+						
+					
+						
+						//TODO handle the exception
+					
 				}
 			});
 		}
@@ -67,8 +81,7 @@ export default {
 </script>
 <style lang="scss" scoped>
 .activite {
-	filter:grayscale(80%);
-	
+	filter: grayscale(80%);
 }
 .tabbar {
 	z-index: 999;

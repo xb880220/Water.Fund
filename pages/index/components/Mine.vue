@@ -52,8 +52,8 @@ export default {
 		if(islogin){
 			this.getCollection();
 		}else {
-			// this.$navto.navto('/pages/login/login')
-			this.$store.commit('saveCount', -1);
+			this.$navto.navto('/pages/login/login')
+			// this.$store.commit('saveCount', -1);
 		}
 		
 		

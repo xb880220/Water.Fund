@@ -17,14 +17,13 @@ export default {
 		let _this = this;
 		uni.addInterceptor('navigateTo', {//监听跳转
 						invoke(e) {
-							console.log(e,3333);
-						   if(e.url == 'userLogin?' || e.url == 'staffLogin?' || e.url == 'userRegister?'){
+							console.log(e.url,3333);
+						   if(e.url == '/pages/login/login?' ||e.url == 'userLogin?' || e.url == 'staffLogin?' || e.url == 'userRegister?'){
 							   // 结束计时
 							   
 								clearInterval(_this.timer);
 								_this.timer = null
 						   }else {
-							    
 							   // 开始计时
 							   let isLogin = _this.judgeLogin();
 							   
@@ -65,7 +64,12 @@ export default {
 	onShow: function() {
 		let _this = this;
 		let isLogin = this.judgeLogin();
-
+		
+		let pages = getCurrentPages();
+		
+		let currentRoute = pages[pages.length-1]?.route;
+		
+		
 		if (!isLogin) {
 			this.openTimer(this.$store.getters.getCount);
 		}
@@ -75,7 +79,9 @@ export default {
 			},
 			data => {
 				if(data < 0){
-					_this.$navto.navto('/pages/login/login');
+					if(currentRoute !== "pages/login/login"){
+						_this.$navto.navto('/pages/login/login');
+					}
 					clearInterval(_this.timer);
 					_this.timer = null
 					return
@@ -97,6 +103,7 @@ export default {
 			return this.$store.getters.getLogin;
 		},
 		openTimer(val = 60) {
+			console.log('开始倒计时',val);
 			let count = val;
 			// let timer;
 			let _this = this;
@@ -105,15 +112,24 @@ export default {
 			}
 			this.timer = setInterval(function fun() {
 				if (count < 0) {
+					
+					let pages = getCurrentPages();
+					
+					let currentRoute = pages[pages.length-1]?.route;
+					
 					clearInterval(_this.timer); //倒计时为0之后停止倒计时
-					console.log('倒计时结束');
+					console.log('倒计时结束1');
 					_this.timer = null
-					_this.$navto.navto('/pages/login/login');
+					
+					if(currentRoute !== "pages/login/login"){
+						_this.$navto.navto('/pages/login/login');
+					}
+					
 				}
 
 				if (_this.$store.getters.getLogin) {
 					clearInterval(_this.timer); //倒计时为0之后停止倒计时
-					console.log('倒计时结束');
+					console.log('倒计时结束2');
 					_this.timer = null
 				}
 				console.log(count);

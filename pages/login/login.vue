@@ -48,19 +48,37 @@ export default {
 	methods:{
 		
 		
-		
-		
-		openScanCode(){
+		clickItem(id) {
+			this.$navto.navto('/pages/index/productDetail', { id: id });
+		},
+		openScanCode() {
+			let _this = this;
 			// 调起条码扫描
 			uni.scanCode({
 				scanType: ['qrCode'],
-				success: function (res) {
+				success: function(res) {
 					console.log('条码类型：' + res.scanType);
 					console.log('条码内容：' + res.result);
-					console.log((res.path));
+						let id = res.result.split('cloud/wechat/qrcode?id=')[1];
+						if(id){
+							_this.clickItem(id);
+						}else {
+							uni.showToast({
+								title: '请扫描指定二维码',
+								icon:'none',
+								duration: 2000
+							});
+						}
+						
+					
+						
+						//TODO handle the exception
+					
 				}
 			});
 		}
+		
+		
 	}
 };
 </script>

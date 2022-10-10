@@ -30,8 +30,23 @@ export default {
 		};
 	},
 	onLoad(option) {
-		this.getDetails(option.id)
-		this.id = option.id
+		if(option.id){
+			this.getDetails(option.id)
+			this.id = option.id
+			return
+		}
+		
+		
+		const q = decodeURIComponent(option.q)
+		if(q){
+			this.id = q.split('id=')[1]
+			this.getDetails(this.id)
+			return
+		}
+		
+		
+		// console.log();
+		// console.log(q,"q");
 	},
 	methods: {
 		async collect(){
