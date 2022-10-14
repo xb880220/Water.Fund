@@ -1,7 +1,7 @@
 <template>
 	<view class="pageMain">
 		<template v-if="loading">
-			<u-loading-page loadingText="Hello" :loading="true" loadingMode="spinner"></u-loading-page>
+			<u-loading-page loadingText="数据加载中" :loading="true" loadingMode="spinner"></u-loading-page>
 		</template>
 		<template v-else>
 			<view class="fixed">

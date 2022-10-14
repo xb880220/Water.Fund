@@ -276,12 +276,16 @@ export default {
 }
 
 .btnCls {
-	height: 80rpx;
-	width: 160rpx;
-	background: white;
-	border-radius: 40rpx;
+	background-image: url("@/static/sy.png");
+	background-size: 100% 100%;
+	height: 6vh;
+	width: 25vw;
+	font-size: 16px;
+	font-weight: 600;
+	// background: white;
+	// border-radius: 40rpx;
 	text-align: center;
-	line-height: 80rpx;
-	box-shadow: 0px 6px 7px 0px rgba(25, 25, 25, 0.38);
+	line-height: 6vh;
+	// box-shadow: 0px 6px 7px 0px rgba(25, 25, 25, 0.38);
 }
 </style>

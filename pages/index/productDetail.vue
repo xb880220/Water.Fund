@@ -7,7 +7,7 @@
 			<!-- <view class="time">2022-08-16</view> -->
 			<view class="sc">
 				<view @tap="collect" style="display: flex;position: absolute;right: 0px;top: 0px;">
-					<u-icon name="star"></u-icon>
+					<u-icon name="star" size="16"></u-icon>
 					<text>收藏</text>
 				</view>
 			</view>
@@ -17,48 +17,52 @@
 </template>
 
 <script>
-	import moment from "@/common/moment/index.js"
-	import { getDetailsApi,joincollectionApi } from '@/config/home.js';
+import moment from '@/common/moment/index.js';
+import { getDetailsApi, joincollectionApi } from '@/config/home.js';
 export default {
 	data() {
 		return {
 			strings: '',
-			details:{
-				content:``
+			details: {
+				content: ``
 			},
-			id:null
+			id: null
 		};
 	},
 	onLoad(option) {
-		if(option.id){
-			this.getDetails(option.id)
-			this.id = option.id
-			return
+		if (option.id) {
+			this.getDetails(option.id);
+			this.id = option.id;
+			return;
 		}
-		
-		
-		const q = decodeURIComponent(option.q)
-		if(q){
-			this.id = q.split('id=')[1]
-			this.getDetails(this.id)
-			return
+
+		const q = decodeURIComponent(option.q);
+		if (q) {
+			this.id = q.split('id=')[1];
+			this.getDetails(this.id);
+			return;
 		}
-		
-		
+
 		// console.log();
 		// console.log(q,"q");
 	},
 	methods: {
-		async collect(){
-			const result = await joincollectionApi(this.id);
-			this.$refs.uToast.show(
-				{
+		async collect() {
+			let islogin = this.$store.getters.getLogin;
+			if (islogin) {
+				const result = await joincollectionApi(this.id);
+				this.$refs.uToast.show({
 					type: 'default',
-					message: "操作成功",
-				}
-				)
+					message: '操作成功'
+				});
+			} else {
+				this.$refs.uToast.show({
+					type: 'error',
+					message: '您未登录'
+				});
+			}
 		},
-		async getDetails(id){
+		async getDetails(id) {
 			const result = await getDetailsApi(id);
 			this.details = result;
 			// this.details.time = moment(this.details.createdTime).format('YYYY-MM-DD HH:mm:ss');
@@ -83,9 +87,10 @@ export default {
 	position: relative;
 	height: 30px;
 	text-align: right;
-	color: #989898;
+	color: #000000;
 	line-height: 30px;
-	font-size: 14px;
+	font-size: 16px;
+	margin-bottom: 10px;
 }
 .page {
 	padding: 20px;
