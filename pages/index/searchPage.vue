@@ -5,7 +5,7 @@
 			<block slot="content">搜索</block>
 		</cu-custom>
 		<view class="page">
-			<u-search placeholder="全局搜索" :clearabled="true" animation showAction @custom="startSearch" v-model="searchVal"></u-search>
+			<u-search placeholder="全局搜索" :clearabled="true" animation showAction @search="startSearch" @custom="startSearch" v-model="searchVal"></u-search>
 			<view class="history" v-if="historyList.length != 0">
 				<view class="title">历史记录</view>
 				<view class="content">
@@ -17,11 +17,11 @@
 
 				<u-tabs :list="list1" @click="click" v-if="resultList.length != 0"></u-tabs>
 
-				<view class="classItem" v-if="resultList.length != 0 && searchIndex!=2">
+				<view class="classItem" v-if="resultList.length != 0 && deviceList.length!=0 && (searchIndex=='全部' || searchIndex=='设备')" >
 					<view class="title">设备</view>
 
 					<view class="content cu-list menu-avatar">
-						<view class="cu-item" v-for="(item, index) in deviceList" @tap="clickItem(item)" :key="index">
+						<view class="cu-item" v-for="(item, index) in deviceList" @tap="clickItem(item,1)" :key="index">
 							<view class="cu-avatar radius xl" :style="'background-image:url(' + item.img + ');'"></view>
 							<view class="contentBox">
 								<view class="title">{{ item.name }}</view>
@@ -34,9 +34,14 @@
 					</view>
 				</view>
 
-				<view class="news classItem" v-if="resultList.length != 0&& searchIndex!=1">
+				<view class="news classItem" v-if="resultList.length != 0 && newsList.length!=0 && (searchIndex=='全部' || searchIndex=='新闻')">
 					<view class="title">新闻</view>
-					<ListItem v-for="(item, index) in newsList":details="item" :key="index"></ListItem>
+					<ListItem v-for="(item, index) in newsList":details="item" :type="1" :key="index"></ListItem>
+				</view>
+				
+				<view class="news classItem" v-if="resultList.length != 0 && noticeList.length!=0 && (searchIndex=='全部' || searchIndex=='公告')">
+					<view class="title">公告</view>
+					<ListItem v-for="(item, index) in noticeList":details="item" :type="2" :key="index"></ListItem>
 				</view>
 				
 				<view class="" style="margin: 0 auto;" v-if="resultList.length == 0"><u-empty mode="search" :icon="icon"></u-empty></view>
@@ -57,20 +62,15 @@ export default {
 		return {
 			icon: require('../../static/search.png'),
 			searchVal: '',
-			searchIndex:0,
+			searchIndex:"全部",
 			deviceList: [],
 			newsList: [],
+			noticeList:[],
 			historyList: [],
 			resultList: [],
 			list1: [
 				{
 					name: '全部'
-				},
-				{
-					name: '设备'
-				},
-				{
-					name: '新闻'
 				}
 			]
 		};
@@ -80,6 +80,15 @@ export default {
 	},
 	methods: {
 		async startSearch() {
+			this.list1= [
+				{
+					name: '全部'
+				}
+			]
+			this.resultList=[];
+			this.deviceList= [];
+			this.newsList= [];
+			this.noticeList=[];
 			console.log('开始搜索');
 			if (this.$store.getters.getHistory.indexOf(this.searchVal) < 0) {
 				this.$store.commit('saveHistory', this.searchVal);
@@ -88,8 +97,14 @@ export default {
 			result.forEach(item => {
 				if (item.resultType == 1) {
 					this.deviceList = item.resiltList;
+					this.list1.push({name:'设备'});
 				} else if (item.resultType == 2) {
 					this.newsList = item.resiltList;
+					this.list1.push({name:'新闻'});
+				}
+				else if(item.resultType==3){
+					this.noticeList=item.resiltList;
+					this.list1.push({name:'公告'});
 				}
 			});
 			this.resultList = result;
@@ -99,9 +114,13 @@ export default {
 			this.searchVal = val;
 			this.startSearch();
 		},
-		clickItem(val) {},
+		clickItem(val,type) {
+			if(type==1){
+			this.$navto.navto('/pages/index/productDetail',{id:val.id});
+			}
+		},
 		click(item){
-			this.searchIndex = item.index;
+			this.searchIndex = item.name;
 			// console.log(item,index);
 		}
 	}

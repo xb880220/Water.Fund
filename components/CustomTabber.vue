@@ -155,13 +155,13 @@ export default {
 		.btn {
 			width: 100%;
 			text-align: center;
-			font-size: 12px;
+			font-size: 16px;
 			font-weight: 400;
 			color: #6fa7fb;
 			> img {
 				margin-top: 12px;
-				width: 20px;
-				height: 20px;
+				width: 25px;
+				height: 25px;
 			}
 		}
 	}

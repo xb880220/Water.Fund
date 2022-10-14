@@ -1,7 +1,7 @@
 <template>
 	<view class="">
 		<template v-if="loading">
-			<u-loading-page loadingText="Hello" :loading="true" loadingMode="spinner"></u-loading-page>
+			<u-loading-page  :loading="true" loadingMode="spinner"></u-loading-page>
 		</template>
 		<template v-else>
 			<Home v-if="checked == 0"></Home>

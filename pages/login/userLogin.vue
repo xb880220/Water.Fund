@@ -54,7 +54,7 @@
 					<view class="margin-top-xl"></view>
 				</u--form>
 				<view class="margin-tb-xl loginBtn">
-					<u-button shape="circle" color="linear-gradient(to bottom, #4ABFFD , #0B93FC)" type="primary" @click="submit">登录</u-button>
+					<u-button shape="circle" color="linear-gradient(to bottom, #4ABFFD , #0B93FC)" type="primary" customStyle="fontSize:18px;fontWeight:500;" @click="submit">登&emsp;&emsp;&emsp;录</u-button>
 				</view>
 			</view>
 			<view class="contactUs" @click="showCall()">联系工作人员</view>

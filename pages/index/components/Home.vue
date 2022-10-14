@@ -176,7 +176,7 @@ export default {
 	padding-top: 10px;
 
 	> text {
-		font-size: 12px;
+		font-size: 14px;
 	}
 
 	.itemIcon {
