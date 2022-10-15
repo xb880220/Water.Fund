@@ -29,7 +29,7 @@
 
 
 		<view class="bgimg" style="">
-			<img :src="baseUrl+'wechat/share/homepage.jpg'" style="width: 100%;height: 100%;" alt="">
+			<img :src="baseUrl+'wechat/share/homepage.jpg'" style="width: 56vh;height: 100vh;" alt="">
 		</view>
 		<view class="scanBtn" @tap="openScanCode">
 			<u-icon name="scan" color="#0B78D6" size="40" class="icon"></u-icon>
@@ -293,9 +293,11 @@
 
 	.bgimg {
 		position: absolute;
-		width: 100vw;
+		width: 56vh;
+		margin-left: -28vh;
 		height: 100vh;
 		z-index: 5;
+		left: 50%; top: 0%;
 	}
 
 	.scanBtn {
