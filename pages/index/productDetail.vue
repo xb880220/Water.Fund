@@ -7,6 +7,7 @@
 			<!-- <view class="time">2022-08-16</view> -->
 			<view class="sc">
 				<view @tap="collect" style="display: flex;position: absolute;right: 0px;top: 0px;">
+					<text style="padding-right:30px ;">阅读&emsp;{{details.browse}} </text>
 					<u-icon name="star" size="16"></u-icon>
 					<text>收藏</text>
 				</view>

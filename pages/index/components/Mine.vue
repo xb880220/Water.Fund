@@ -1,5 +1,9 @@
 <template>
 	<view class="page">
+		<cu-custom bgColor="bgcolor" :isBack="true">
+			<block slot="backText">返回</block>
+			<block slot="content">个人中心</block>
+		</cu-custom>
 		<view class="bgimg">
 			<image src="../../../static/980.jpg" style="width: 100%;height: 100%;" mode=""></image>
 		</view>

@@ -49,14 +49,15 @@ export default {
 	onPageScroll(e) {
 		this.scrollTop = e.scrollTop;
 	},
-	onReachBottom() {
-		this.loadmore();
-	},
+	// onReachBottom() {
+	// 	this.loadmore();
+	// },
 	methods: {
-		scrolltolower(e) {
-			// this.config.pageIndex++;
-			this.loadmore(this.id);
-		},
+		// scrolltolower(e) {
+		// 	debugger;
+		// 	// this.config.pageIndex++;
+		// 	//this.loadmore(this.id);
+		// },
 		clickItem(val) {
 			this.$navto.navto('/pages/index/productDetail',{id:val.id});
 		},
