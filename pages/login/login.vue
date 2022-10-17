@@ -286,6 +286,7 @@
 	.main {
 		height: 100vh;
 		width: 100vw;
+		overflow: hidden;
 		position: relative;
 		// background-color: #d4d4d4;
 		// background-image: "../../static/bg.jpg";

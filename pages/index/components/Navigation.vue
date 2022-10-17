@@ -3,7 +3,7 @@
 		<movable-area class="movable-area" >
 			<movable-view class="movable-view"   style="width: 600px;height: 400px;" @scale="changeZoom" direction="all" scale scale-max="2" x="2400" y="3100" :out-of-bounds="true" >
 				<img src="https://zspt2.5iprint.cloud/images/map/map.jpg?v=1" style="width: 100%;height: 100%;"  alt="">
-				<view class="mark"   v-for="(item,index) in list" :key="index"	:style="'transform: scale(' + sc + ');top:'+item.yaxis+'px;left:'+item.xaxis+'px'">
+				<view class="mark"   v-for="(item,index) in list" :key="index"	:style="'top:'+item.yaxis+'px;left:'+item.xaxis+'px'">
 					
 					
 					<view class="" style="background-color: #fff;padding: 2px 5px;border-radius: 5px;max-width:200px" @click="toDes(item.id)">{{item.name}}</view>
