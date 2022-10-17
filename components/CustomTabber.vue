@@ -23,7 +23,7 @@
 			</view>
 		</view>
 
-		<view class="cenBtn" @tap="openScanCode"><u-icon name="scan" color="#6fa7fb" size="40"></u-icon></view>
+		<view class="cenBtn" @tap="openScanCode"><u-icon name="scan" color="#1898fd" size="40"></u-icon></view>
 		<view class="bgl"></view>
 		<view class="bgr"></view>
 		<img src="../static/tabber.png" alt="" />
