@@ -32,7 +32,7 @@
 			<img :src="baseUrl+'wechat/share/homepage.jpg'" style="width: 56vh;height: 100vh;" alt="">
 		</view>
 		<view class="scanBtn" @tap="openScanCode">
-			<u-icon name="scan" color="#0B78D6" size="40" class="icon"></u-icon>
+			<u-icon name="scan" color="#0B78D6" size="55" class="icon"></u-icon>
 		</view>
 		<view class="loginBtn">
 			<view class="btnCls" @tap="$navto.navto('userRegister')">
@@ -298,19 +298,20 @@
 		margin-left: -28vh;
 		height: 100vh;
 		z-index: 5;
-		left: 50%; top: 0%;
+		left: 50%;
+		top: 0%;
 	}
 
 	.scanBtn {
-		width: 50px;
-		height: 50px;
+		width: 65px;
+		height: 65px;
 		border-radius: 50px;
 		padding: 5px;
 		z-index: 10;
 		box-sizing: border-box;
 		background: white;
 		position: fixed;
-		left: calc(50% - 25px);
+		left: calc(48% - 25px);
 		bottom: 250rpx;
 		box-sizing: border-box;
 		// border: 10px solid #77747432;
@@ -323,7 +324,7 @@
 		// }
 	}
 
-@keyframes animated-border {
+	@keyframes animated-border {
 		0% {
 			box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.6);
 		}
@@ -353,18 +354,18 @@
 	// 	line-height: 80rpx;
 	// 	box-shadow: 0px 6px 7px 0px rgba(25, 25, 25, 0.38);
 	// }
-.btnCls {
-	background-image: url("@/static/sy.png");
-	background-size: 100% 100%;
-	height: 6vh;
-	width: 25vw;
-	font-size: 16px;
-	font-weight: 600;
-	// background: white;
-	// border-radius: 40rpx;
-	text-align: center;
-	line-height: 6vh;
-	// box-shadow: 0px 6px 7px 0px rgba(25, 25, 25, 0.38);
-}
-
+	.btnCls {
+		background-image: url("@/static/sy.png");
+		background-size: 100% 100%;
+		height: 6vh;
+		width: 25vw;
+		font-size: 16px;
+		font-weight: 600;
+		// background: white;
+		// border-radius: 40rpx;
+		text-align: center;
+		line-height: 6vh;
+		color: #3399CC;
+		// box-shadow: 0px 6px 7px 0px rgba(25, 25, 25, 0.38);
+	}
 </style>

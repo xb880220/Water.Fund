@@ -4,9 +4,9 @@
 			<u-loading-page loadingText="数据加载中" :loading="true" loadingMode="spinner"></u-loading-page>		</template>
 		<template v-else>
 			<view class="fixed">
-				<cu-custom bgColor="text-white">
-					<!-- <block slot="backText">返回</block> -->
-					<block slot="content">产品内容</block>
+				<cu-custom bgColor="text-white" :isBack="true">
+					<block slot="backText">返回</block>
+					<block slot="content">展示内容</block>
 				</cu-custom>
 			</view>
 			<view class="bgcolor" style="height: 200px;"></view>
@@ -161,8 +161,11 @@ export default {
 	background-color: #f1f1f1;
 	margin: 0;
 	border: none;
-	height: 50px;
+	height: 55px;
+	line-height: 55px;
 	position: relative;
+	font-size: 16px;
+	
 }
 
 .VerticalNav.nav .cu-item.cur {

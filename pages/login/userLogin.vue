@@ -149,7 +149,7 @@ export default {
 						this.$store.commit('saveToken', result);
 						this.$navto.navto('/pages/index/index');
 					}
-					uni.$u.toast('欢迎进入实训平台');
+					uni.$u.toast('欢迎进入实训基地展示平台');
 				})
 				.catch(errors => {
 					debugger;

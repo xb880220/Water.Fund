@@ -13,7 +13,7 @@
 					<u-form-item prop="staffNo" class="margin-top-xl" borderBottom>
 						<u--input
 							prefixIcon="list-dot"
-							prefixIconStyle="font-size: 22px;color: #45BBFD"
+							prefixIconStyle="font-size: 30px;color: #45BBFD"
 							v-model="form.staffNo"
 							placeholder="请输入您的职工编号"
 							border="none"
@@ -23,7 +23,7 @@
 					<u-form-item prop="accountName" class="margin-top-xl" borderBottom>
 						<u--input
 							prefixIcon="account"
-							prefixIconStyle="font-size: 22px;color: #45BBFD"
+							prefixIconStyle="font-size: 30px;color: #45BBFD"
 							v-model="form.accountName"
 							placeholder="请输入您的姓名"
 							border="none"
@@ -37,7 +37,7 @@
 					<u-form-item prop="pwd" class="margin-top-xl" borderBottom>
 						<u--input
 							prefixIcon="lock"
-							prefixIconStyle="font-size: 22px;color: #45BBFD"
+							prefixIconStyle="font-size: 30px;color: #45BBFD"
 							v-model="form.pwd"
 							type="password"
 							placeholder="请输入您的密码"
@@ -142,7 +142,7 @@ export default {
 						this.$store.commit('saveToken', result);
 						this.$navto.navto('/pages/index/index');
 					}
-					uni.$u.toast('欢迎进入实训平台');
+					uni.$u.toast('欢迎进入实训基地展示平台');
 				})
 				.catch(errors => {
 					uni.$u.toast('校验失败');
