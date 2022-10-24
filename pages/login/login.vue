@@ -336,8 +336,8 @@
 
 	.loginBtn {
 		height: 100px;
-		margin: 0 10%;
-		width: 80%;
+		//margin: 0 5%;
+		width: 100%;
 		position: fixed;
 		bottom: 0;
 		display: flex;
@@ -355,7 +355,7 @@
 	// 	box-shadow: 0px 6px 7px 0px rgba(25, 25, 25, 0.38);
 	// }
 	.btnCls {
-		background-image: url("@/static/sy.png");
+		background-image: url("@/static/sy.png?v=1");
 		background-size: 100% 100%;
 		height: 6vh;
 		width: 25vw;
@@ -364,8 +364,9 @@
 		// background: white;
 		// border-radius: 40rpx;
 		text-align: center;
-		line-height: 6vh;
+		line-height: 5.5vh;
 		color: #3399CC;
+		letter-spacing:2px;
 		// box-shadow: 0px 6px 7px 0px rgba(25, 25, 25, 0.38);
 	}
 </style>

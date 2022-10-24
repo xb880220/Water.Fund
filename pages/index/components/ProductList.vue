@@ -6,7 +6,7 @@
 			<view class="fixed">
 				<cu-custom bgColor="text-white" :isBack="true">
 					<block slot="backText">返回</block>
-					<block slot="content">展示内容</block>
+					<block slot="content">展示目录</block>
 				</cu-custom>
 			</view>
 			<view class="bgcolor" style="height: 200px;"></view>

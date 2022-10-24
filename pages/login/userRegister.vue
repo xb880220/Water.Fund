@@ -86,6 +86,13 @@
 				</div>
 			</view>
 		</view>
+	<view>
+		<checkbox-group>
+							<label>
+								<checkbox value="cb" checked="true" color="#FFCC33" style="transform:scale(0.7)" /><view>《用户服务协议》及《隐私政策》</view>
+							</label>
+						</checkbox-group>
+	</view>
 	</view>
 </template>
 

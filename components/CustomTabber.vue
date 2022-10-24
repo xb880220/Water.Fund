@@ -3,22 +3,22 @@
 		<div class="bottom"></div>
 		<view class="btnbox">
 			<view class="btn" :class="checked !== 0 ? 'activite' : ''" @tap="clickTabber(0)">
-				<img src="../static/tabber/home.png" alt="" />
+				<img src="../static/tabber/home.png?v=1" alt="" />
 				<view class="">首页</view>
 			</view>
 			<view class="btn" :class="checked !== 1 ? 'activite' : ''" @tap="clickTabber(1)">
-				<img src="../static/tabber/browse.png" alt="" />
+				<img src="../static/tabber/browse.png?v=1" alt="" />
 				<view class="">导览</view>
 			</view>
 		</view>
 
 		<view class="btnbox">
 			<view class="btn" :class="checked !== 2 ? 'activite' : ''" @tap="clickTabber(2)">
-				<img src="../static/tabber/catalog.png" alt="" />
+				<img src="../static/tabber/catalog.png?v=1" alt="" />
 				<view class="">目录</view>
 			</view>
 			<view class="btn" :class="checked !== 3 ? 'activite' : ''" @tap="clickTabber(3)">
-				<img src="../static/tabber/mine.png" alt="" />
+				<img src="../static/tabber/mine.png?v=1" alt="" />
 				<view class="">我的</view>
 			</view>
 		</view>
