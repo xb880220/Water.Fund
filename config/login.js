@@ -6,5 +6,7 @@ export const registerApi = (params, config = {}) => http.post('/api/fund/home/re
 
 export const getMenu = (data) => http.get('/ebapi/public_api/index', data)
 
+export const getACapi = () => http.get('/api/fund/home/getregisterprivate')
+
 
 export const userLoginApi = (params, config = {}) => http.post('/api/fund/home/login', params, config)
