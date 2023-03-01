@@ -8,10 +8,10 @@
 		</view>
 		<view class="info" style="">
 			<view class="" style="border-bottom: 1px solid #e3e3de;" v-cloak>
-				<text class="title">地址</text>:{{details.address}}
+				<img  class="img" src="../../static/home/dingwei.png" alt="" /><text class="title">基地地址：</text><text style="font-weight: 500;">{{details.address}}</text>
 			</view>
 			<view class="" v-cloak>
-				<text class="title">交通方式</text>:{{details.buses}}
+				<img  class="img" src="../../static/home/gongjiao.png" alt="" /><text class="title">交通信息：</text><text style="font-weight: 500;">{{details.buses}}</text>
 			</view>
 			
 		</view>
@@ -30,7 +30,7 @@ export default {
 			details: {}
 		};
 	},
-	onLoad(option) {
+	onLoad(option) {debugger;
 		this.details = JSON.parse(decodeURIComponent(option.details)) ;
 		this.latitude = this.details.latitude;
 		this.longitude = this.details.longitude;
@@ -67,7 +67,7 @@ export default {
 }
 .info {
 	font-weight: 600;
-	height: 80px;
+	height: 100px;
 	background-color: white;
 	position: absolute;
 		left: 2%;
@@ -86,10 +86,17 @@ export default {
 	z-index: 200;
 }
 .title {
-	width: calc(4rem + 6px);
+	width: calc(4rem + 15px);
 	text-align: justify;
 	line-height: 30px;
-	font-weight: 500;
+	//font-weight: 500;
 	display: inline-block;
+	font-size: 15px;
+}
+.img{
+	width:16px;
+	height: 16px;
+	vertical-align: middle;
+	margin-right: 10px;
 }
 </style>

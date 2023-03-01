@@ -4,10 +4,11 @@
 			<u-loading-page loadingText="数据加载中" :loading="true" loadingMode="spinner"></u-loading-page>		</template>
 		<template v-else>
 			<view class="fixed">
-				<cu-custom bgColor="text-white" :isBack="true">
+				<cu-custom bgColor="text-white">
 					<block slot="backText">返回</block>
 					<block slot="content">展示目录</block>
 				</cu-custom>
+				
 			</view>
 			<view class="bgcolor" style="height: 200px;"></view>
 			<view class="VerticalBox">

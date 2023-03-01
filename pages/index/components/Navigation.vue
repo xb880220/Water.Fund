@@ -1,7 +1,7 @@
 <template>
 	<view class="page">
-		<cu-custom bgColor="bgcolor" :isBack="true">
-			<block slot="backText">返回</block>
+		<cu-custom bgColor="bgcolor" >
+			
 			<block slot="content">导览地图</block>
 		</cu-custom>
 		<movable-area class="movable-area" >
